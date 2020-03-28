@@ -1,40 +1,5 @@
 
 {
-  "bip70-cash": {
-    "category": "Services",
-    "title": "BIP70.Cash",
-    "type": "REST API",
-    "description": "A BIP70 Payment Service that makes accepting BIP70 payments simple",
-    "warning": "Unstable",
-    "tags": [
-      "bip70",
-      "nodejs",
-      "javascript",
-      "payments"
-    ],
-    "actions": {
-      "introduction": {
-        "title": "Introduction",
-        "type": "markdown",
-        "source": "https://raw.githubusercontent.com/developers-cash/bip70.cash-js/master/README.md"
-      },
-      "demo": {
-        "title": "Demo",
-        "type": "external-link",
-        "url": "https://bip70.cash/#/example"
-      },
-      "repository-js": {
-        "title": "Repository (Server)",
-        "type": "external-link",
-        "url": "https://github.com/developers-cash/bip70.cash-js"
-      },
-      "repository-server": {
-        "title": "Repository (JS)",
-        "type": "external-link",
-        "url": "https://github.com/developers-cash/bip70.cash-js"
-      }
-    }
-  },
   "bchd": {
     "category": "Self-Hosted",
     "title": "BCHD",
@@ -116,7 +81,19 @@
       "bip70",
       "jsonpaymentrequest",
       "payments"
-    ]
+    ],
+    "actions": {
+      "introduction": {
+        "title": "Introduction",
+        "type": "markdown",
+        "source": "https://raw.githubusercontent.com/developers-cash/cash-pay-microservice/master/README.md"
+      },
+      "repo": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://github.com/developers-cash/cash-pay-microservice"
+      }
+    }
   },
   "bitbox": {
     "category": "Libraries",
