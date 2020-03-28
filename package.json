@@ -1,0 +1,39 @@
+{
+  "name": "developers.cash",
+  "version": "0.0.1",
+  "description": "Useful developer resources for the Internet of Cash",
+  "productName": "Developers.Cash",
+  "cordovaId": "cash.developers",
+  "capacitorId": "",
+  "author": "Jimtendo (jimtendo@protonmail.com)",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@developers.cash/libcash-js": "^0.9.3",
+    "@quasar/extras": "^1.5.1",
+    "axios": "^0.18.1",
+    "bip70cash": "0.0.12",
+    "compact-message-format": "0.0.4",
+    "github-markdown-css": "^3.0.1",
+    "markdown-it": "^10.0.0",
+    "qrcode": "^1.4.4",
+    "quasar": "^1.8.5",
+    "vue-prismjs": "^1.2.0",
+    "vue-qrcode": "^0.2.3"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.5.3",
+    "@quasar/quasar-app-extension-icon-genie": "^1.1.3",
+    "raw-loader": "^4.0.0"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}
