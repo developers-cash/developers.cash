@@ -1,0 +1,446 @@
+{
+  "bitcoin-cash-node": {
+    "category": "Node Software",
+    "title": "Bitcoin Cash Node",
+    "logo": "https://bitcoincashnode.org/static/img/logo-white.svg",
+    "subheading": "C++ Full Node",
+    "description": "A professional, miner-friendly node that solves practical problems for Bitcoin Cash.",
+    "tags": [
+      "node",
+      "full node",
+      "c++"
+    ],
+    "actions": {
+      "official": {
+        "title": "Official Site",
+        "type": "external-link",
+        "url": "https://bitcoincashnode.org/"
+      },
+      "repo": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://gitlab.com/bitcoin-cash-node/bitcoin-cash-node"
+      }
+    }
+  },
+  "bchd": {
+    "category": "Node Software",
+    "title": "BCHD",
+    "logo": "https://bchd.cash/_assets/svg/logo.svg?0.0.2",
+    "subheading": "Golang Full Node",
+    "description": "BCHD is an alternative BCH implementation written in Go. It is 100% compatible with the Bitcoin Cash protocol, and comes packed with developer-friendly features.",
+    "tags": [
+      "node",
+      "full node",
+      "golang"
+    ],
+    "actions": {
+      "official": {
+        "title": "Official Site",
+        "type": "external-link",
+        "url": "https://bchd.cash"
+      },
+      "repo": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://github.com/gcash/bchd"
+      }
+    }
+  },
+  "flowee": {
+    "category": "Node Software",
+    "title": "Flowee",
+    "logo": "https://gitlab.com/FloweeTheHub/website/-/raw/master/static/img/landing.png",
+    "subheading": "C++ Full Node",
+    "description": "Talk to the blockchain in an easy to understand API. No fussing with other people's software or unreliable third parties. Flowee lets you process or create Bitcoin Cash payments within your own applications. It's easy!",
+    "tags": [
+      "node",
+      "full node",
+      "c++"
+    ],
+    "actions": {
+      "official": {
+        "title": "Official Site",
+        "type": "external-link",
+        "url": "https://flowee.org/"
+      },
+      "repo": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://gitlab.com/FloweeTheHub"
+      }
+    }
+  },
+  "knuth": {
+    "category": "Node Software",
+    "title": "Knuth",
+    "logo": "https://kth.cash/img/logo.svg",
+    "background": "#eee",
+    "subheading": "C++ Full Node",
+    "description": "Knuth is a high performance implementation of the Bitcoin protocol focused on users requiring extra capacity and resilience. It is a full node software client, but also a development platform.",
+    "tags": [
+      "node",
+      "full node",
+      "c++"
+    ],
+    "actions": {
+      "official": {
+        "title": "Official Site",
+        "type": "external-link",
+        "url": "https://kth.cash"
+      },
+      "repo": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://github.com/k-nuth/kth"
+      }
+    }
+  },
+  "bitcoin-unlimited": {
+    "category": "Node Software",
+    "title": "Bitcoin Unlimited",
+    "logo": "https://github.com/BitcoinUnlimited/BitcoinUnlimited/blob/release/share/pixmaps/bitcoin256.png?raw=true",
+    "background": "#eee",
+    "subheading": "C++ Full Node",
+    "description": "Bitcoin Unlimited powers the backbone of the Bitcoin network by using novel technologies: Adjustable Block-size Cap (ABC), Xtreme thin blocks (Xthin) and Parallel validation",
+    "tags": [
+      "node",
+      "full node",
+      "c++"
+    ],
+    "actions": {
+      "official": {
+        "title": "Official Site",
+        "type": "external-link",
+        "url": "https://www.bitcoinunlimited.info"
+      },
+      "repo": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://github.com/BitcoinUnlimited/BitcoinUnlimited"
+      }
+    }
+  },
+  "bitcoin-verde": {
+    "category": "Node Software",
+    "title": "Bitcoin Verde",
+    "logo": "https://bitcoinverde.org/img/logo-dark-banner.png",
+    "background": "#252525",
+    "subheading": "Java Full Node",
+    "description": "A Bitcoin Cash full-node implementation written in Java with a Block Explorer bundled directly into the Node",
+    "tags": [
+      "node",
+      "full node",
+      "java"
+    ],
+    "actions": {
+      "official": {
+        "title": "Official Site",
+        "type": "external-link",
+        "url": "https://bitcoinverde.org/"
+      },
+      "repo": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://github.com/SoftwareVerde/bitcoin-verde"
+      }
+    }
+  },
+  "bitbox": {
+    "category": "Libraries",
+    "title": "BITBOX SDK",
+    "subheading": "Javascript/NodeJS SDK",
+    "logo": "https://www.bitcoin.com/icons/icon-256x256.png",
+    "background": "#242424",
+    "description": "Bitbox-sdk is a utility for creating great Bitcoin Cash applications. It can be used from the command line or from within client/server apps.",
+    "tags": [
+      "sdk",
+      "nodejs",
+      "javascript"
+    ],
+    "actions": {
+      "official": {
+        "title": "Official Site",
+        "type": "external-link",
+        "url": "https://developer.bitcoin.com/bitbox/"
+      },
+      "repository": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://github.com/Bitcoin-com/bitbox-sdk"
+      }
+    }
+  },
+  "BCH-JS": {
+    "category": "Libraries",
+    "title": "BCH-JS",
+    "subheading": "Javascript/NodeJS SDK",
+    "logo": "https://fullstack.cash/icons/icon-512x512.png",
+    "background": "#eee",
+    "description": "bch-js is a JavaScript npm library for creating web and mobile apps that can interact with the Bitcoin Cash (BCH) blockchains. It can be used for free, but requires an account on FullStack.cash for increased rate limits.",
+    "tags": [
+      "sdk",
+      "nodejs",
+      "javascript"
+    ],
+    "actions": {
+      "repository": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://github.com/Permissionless-Software-Foundation/bch-js"
+      }
+    }
+  },
+  "electrum-cash": {
+    "category": "Libraries",
+    "title": "Electrum Cash",
+    "subheading": "NodeJS Library",
+    "description": "Electrum-cash is a lightweight JavaScript library that lets you connect with one or more Electrum servers. It offers encrypted connections by default, performs the expected protocol version negotiation and automatically keeps your connection alive until your close it.",
+    "logo": "https://gitlab.com/GeneralProtocols/electrum-cash/library/-/raw/master/images/svg/electrum-cash-logo-round.svg",
+    "tags": [
+      "nodejs",
+      "electrum"
+    ],
+    "actions": {
+      "repo": {
+        "title": "Repository",
+        "type": "external-link",
+        "url": "https://gitlab.com/GeneralProtocols/electrum-cash"
+      }
+    }
+  },
+  "coindance": {
+    "category": "Network",
+    "title": "Coin Dance",
+    "subheading": "Network Statistics and Services",
+    "description": "Community-driven Bitcoin Cash statistics and services.",
+    "logo": "https://cash.coin.dance/assets/image/logo.png",
+    "background": "#fff",
+    "tags": [
+      "statistics",
+      "forks",
+      "blocks"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://cash.coin.dance"
+      }
+    }
+  },
+  "bitcoin.com-blockexplorer": {
+    "category": "Network",
+    "title": "Bitcoin.com Block Explorer",
+    "subheading": "Block Explorer",
+    "description": "Bitcoin.com Bitcoin Cash Block Explorer",
+    "logo": "https://www.bitcoin.com/icons/icon-256x256.png",
+    "tags": [
+      "block explorer"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://explorer.bitcoin.com/bch"
+      }
+    }
+  },
+  "blockchair": {
+    "category": "Network",
+    "title": "Blockchair Block Explorer",
+    "subheading": "Block Explorer",
+    "description": "Blockchair.io Bitcoin Cash Block Explorer",
+    "logo": "https://loutre.blockchair.io/images/new/logo_full_night.svg",
+    "tags": [
+      "block explorer"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://blockchair.com/bitcoin-cash"
+      }
+    }
+  },
+  "flipstarter": {
+    "category": "Community",
+    "title": "Flipstarter",
+    "subheading": "Crowdfunding",
+    "description": "Flipstarter provides a way for any project to engage with potential funders in a way that encourages accountability for projects and fairness for funders.",
+    "logo": "https://flipstarter.cash/static/img/thumbnail.png",
+    "background": "#131314",
+    "tags": [
+      "crowdfunding"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://flipstarter.cash"
+      }
+    }
+  },
+  "bitcoincashresearch.org": {
+    "category": "Community",
+    "title": "BitcoinCashResearch.org",
+    "subheading": "Forum",
+    "description": "The Bitcoin Cash ecosystem requires a common space where pioneers, innovators and developers can collaborate productively. The Bitcoin Cash Research project aims to fill that need.",
+    "logo": "https://bitcoincashresearch.org/uploads/default/optimized/1X/e218a641dbac72002adfc24d30e567cfab15b7ef_2_180x180.png",
+    "background": "#eee",
+    "tags": [
+      "forum", "discussion", "technical"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://bitcoincashresearch.org"
+      }
+    }
+  },
+  "bitpay": {
+    "category": "Services",
+    "title": "Bitpay",
+    "subheading": "Payment Gateway",
+    "description": "Accept cryptcurrency payments on your sites/applications.",
+    "logo": "https://bitpay.com/assets/touch/android-chrome-192x192.png",
+    "background": "#eee",
+    "tags": [
+      "payment gateway", "rest-api", "javascript", "wordpress"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://bitpay.com"
+      }
+    }
+  },
+  "FullStack.Cash": {
+    "category": "Services",
+    "title": "FullStack.Cash",
+    "subheading": "Platform",
+    "description": "The open source 'Cash Stack' allows phone and web apps to interact with the Bitcoin Cash blockchain.",
+    "logo": "https://fullstack.cash/icons/icon-512x512.png",
+    "background": "#eee",
+    "tags": [
+      "platform", "rest api", "bch-js"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://fullstack.cash"
+      }
+    }
+  },
+  "sideshift": {
+    "category": "Services",
+    "title": "SideShift.ai",
+    "subheading": "Cryptocurrency Exchange",
+    "description": "Exchange between 25+ cryptocurrencies with SideShift.ai. Competitive rates. No sign-up required.",
+    "logo": "https://sideshift.ai/sideshift-ai-long-white-gradient.svg",
+    "tags": [
+      "exchange", "rest api"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://sideshift.ai"
+      }
+    }
+  },
+  "simple-ledger-protocol": {
+    "category": "Protocols",
+    "title": "Simple Ledger Protocol",
+    "subheading": "Tokens",
+    "description": "Simple Ledger Protocol provides the simplest, fastest, and most liberating token system in existence. SLP tokens can easily be created, traded, and managed on the Bitcoin Cash blockchain within seconds; costing the user only fractions of a penny for each transaction.",
+    "logo": "https://simpleledger.cash/wp-content/uploads/2020/04/cropped-SLP-icon-1-192x192.png",
+    "tags": [
+      "tokens"
+    ],
+    "actions": {
+      "default": {
+        "title": "Protocol",
+        "type": "external-link",
+        "url": "https://simpleledger.cash"
+      }
+    }
+  },
+  "cash-accounts-protocol": {
+    "category": "Protocols",
+    "title": "CashAccounts",
+    "subheading": "Usernames",
+    "description": "Cash Accounts is a naming system that can be used alongside regular bitcoin addresses and payment codes to simplify the process of sharing payment information.",
+    "logo": "https://gitlab.com/cash-accounts/website/-/raw/master/www/img/logo.png?inline=false",
+    "background": "#eee",
+    "tags": [
+      "identity",
+      "user experience"
+    ],
+    "actions": {
+      "default": {
+        "title": "Protocol",
+        "type": "external-link",
+        "url": "https://gitlab.com/cash-accounts/"
+      }
+    }
+  },
+  "cash-id-protocol": {
+    "category": "Protocols",
+    "title": "CashID",
+    "subheading": "Cryptographic Authentication",
+    "description": "CashID is an open protocol that allows secure authentication based on the public key cryptography infrastructure that is currently present in the Bitcoin Cash ecosystem.",
+    "logo": "https://gitlab.com/cashid/website/-/raw/master/logo.png?inline=false",
+    "background": "#eee",
+    "tags": [
+      "authentication",
+      "identity",
+      "user experience"
+    ],
+    "actions": {
+      "default": {
+        "title": "Protocol",
+        "type": "external-link",
+        "url": "https://gitlab.com/cashid/protocol-specification"
+      }
+    }
+  },
+  "memo-protocol": {
+    "category": "Protocols",
+    "title": "Memo",
+    "subheading": "Microblogging",
+    "description": "Memo is both a protocol and a front-end application. The protocol works by writing transactions to the Bitcoin Cash blockchain. Client applications can read these transactions to see the activity on the network. With current social networks, users do not control their data and can have their accounts removed without reason. The blockchain is more than an uncensorable way to send money, it's an uncensorable way to store data. Memo is an experiment leveraging the blockchain's data storing capabilities.",
+    "logo": "https://memo.cash/img/memo-square.png",
+    "background": "#548d1d",
+    "tags": [
+      "microblogging", "social media"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://memo.cash"
+      }
+    }
+  },
+  "bitcoin-cash-telegram": {
+    "category": "Community",
+    "title": "Bitcoin Cash Telegram Channel",
+    "subheading": "Chat",
+    "description": "A group for bitcoin cash and anything and everything related to it!",
+    "logo": "https://telegram.org/img/website_icon.svg",
+    "tags": [
+      "instant messaging", "discussion"
+    ],
+    "actions": {
+      "default": {
+        "title": "Link",
+        "type": "external-link",
+        "url": "https://t.me/bchchannel"
+      }
+    }
+  }
+}

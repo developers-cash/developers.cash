@@ -1,6 +1,6 @@
 <template>
     <q-card class="col-4" flat bordered>
-      <div class="summary-card-img">
+      <div class="summary-card-img" :style="resource.background ? `background:${resource.background}` : ''">
         <div v-if="resource.warning" class="absolute-bottom-right">
           <q-chip color="red" text-color="white" :label="resource.warning" />
         </div>
@@ -12,8 +12,11 @@
       </div>
 
       <q-card-section>
-        <div class="text-overline text-orange-9">{{ resource.category }}/{{ resource.type }}</div>
+        <div class="text-overline text-orange-9">{{ resource.subheading }}</div>
         <div class="text-h5 q-mt-sm q-mb-xs">{{ resource.title }}</div>
+        <div class="q-mb-xs">
+          <q-chip v-for="tag in resource.tags" :key="tag" dense>{{ tag }}</q-chip>
+        </div>
         <div class="text-caption text-grey">
           {{ resource.description }}
         </div>

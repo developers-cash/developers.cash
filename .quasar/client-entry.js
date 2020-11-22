@@ -200,6 +200,12 @@ import { addPreFetchHooks } from './client-prefetch.js'
 
 
 
+Vue.config.devtools = true
+Vue.config.productionTip = false
+
+
+
+console.info('[Quasar] Running SSR.')
 
 
 
@@ -208,6 +214,12 @@ import { addPreFetchHooks } from './client-prefetch.js'
 async function start () {
   const { app, store, router } = await createApp()
 
+  
+  // prime the store with server-initialized state.
+  // the state is determined during SSR and inlined in the page markup.
+  if (window.__INITIAL_STATE__) {
+    store.replaceState(window.__INITIAL_STATE__)
+  }
   
 
   
@@ -253,16 +265,16 @@ async function start () {
   
 
   
+    const appInstance = new Vue(app)
 
-    
-    addPreFetchHooks(router, store)
-    
-
-    
-
-    new Vue(app)
-
-    
+    // wait until router has resolved all async before hooks
+    // and async components...
+    router.onReady(() => {
+      
+      addPreFetchHooks(router, store)
+      
+      appInstance.$mount('#q-app')
+    })
 
   
 

@@ -15,8 +15,6 @@ const appOptions = App.options /* Vue.extend() */ || App
 
 
 
-let appPrefetch = typeof appOptions.preFetch === 'function'
-
 
 function getMatchedComponents (to, router) {
   const route = to
@@ -57,11 +55,6 @@ export function addPreFetchHooks (router, store) {
       .filter(m => m.c && typeof m.c.preFetch === 'function')
       .map(m => m.c)
 
-    
-    if (appPrefetch) {
-      appPrefetch = false
-      components.unshift(appOptions)
-    }
     
 
     if (!components.length) { return next() }
