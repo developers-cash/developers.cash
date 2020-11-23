@@ -9,8 +9,7 @@
  *
  * Boot files are your "main.js"
  **/
-import App from 'app/src/App.vue'
-const appOptions = App.options /* Vue.extend() */ || App
+
 
 
 
@@ -22,7 +21,8 @@ function getMatchedComponents (to, router) {
     : router.currentRoute
 
   if (!route) { return [] }
-  return [].concat.apply([], route.matched.map(m => {
+
+  return Array.prototype.concat.apply([], route.matched.map(m => {
     return Object.keys(m.components).map(key => {
       const comp = m.components[key]
       return {
@@ -44,7 +44,7 @@ export function addPreFetchHooks (router, store) {
       prevMatched = getMatchedComponents(from, router)
 
     let diffed = false
-    const components = matched
+    const preFetchList = matched
       .filter((m, i) => {
         return diffed || (diffed = (
           !prevMatched[i] ||
@@ -53,28 +53,28 @@ export function addPreFetchHooks (router, store) {
         ))
       })
       .filter(m => m.c && typeof m.c.preFetch === 'function')
-      .map(m => m.c)
+      .map(m => m.c.preFetch)
 
     
 
-    if (!components.length) { return next() }
+    if (preFetchList.length === 0) {
+      return next()
+    }
 
-    let routeUnchanged = true
+    let hasRedirected = false
     const redirect = url => {
-      routeUnchanged = false
+      hasRedirected = true
       next(url)
     }
     const proceed = () => {
       
-      if (routeUnchanged) { next() }
+      if (hasRedirected === false) { next() }
     }
 
     
 
-    components
-    .filter(c => c && c.preFetch)
-    .reduce(
-      (promise, c) => promise.then(() => routeUnchanged && c.preFetch({
+    preFetchList.reduce(
+      (promise, preFetch) => promise.then(() => hasRedirected === false && preFetch({
         store,
         currentRoute: to,
         previousRoute: from,

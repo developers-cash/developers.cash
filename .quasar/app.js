@@ -16,6 +16,7 @@ import './import-quasar.js'
 import { Quasar } from 'quasar'
 
 
+
 import App from 'app/src/App.vue'
 
 
@@ -46,14 +47,16 @@ export default async function (ssrContext) {
   // Here we inject the router, store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    
     router,
     store,
     render: h => h(App)
   }
 
+
   
+    
   Quasar.ssrUpdate({ app, ssr: ssrContext })
+    
   
 
   // expose the app, the router and the store.

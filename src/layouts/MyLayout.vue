@@ -9,40 +9,6 @@
               Developers.Cash
           </router-link>
         </q-toolbar-title>
-        <q-select
-          dense
-          outlined
-          square
-          :multiple="false"
-          v-model="search.value"
-          use-input
-          input-debounce="0"
-          label="Search"
-          :options="search.filtered"
-          @filter="filterResources"
-          style="width: 250px"
-          class="bg-white q-mr-md"
-          @input="onSelected"
-        >
-          <template v-slot:append>
-            <q-icon name="search" />
-          </template>
-          <template v-slot:no-option>
-            <q-item>
-              <q-item-section class="text-grey">
-                No results
-              </q-item-section>
-            </q-item>
-          </template>
-        </q-select>
-
-        <!--<q-btn stretch flat label="Services" icon="arrow_right_alt" to="/" />
-        <q-btn stretch flat label="SDK's" icon="code" to="/api" />
-        <q-btn stretch flat label="Tutorials" icon="code" to="/own-node" />
-        <q-btn stretch flat label="Tools" icon="list" to="/example" />
-        <q-btn stretch flat icon="code" type="a" href="https://github.com" />
-        <q-btn stretch flat label="Tools" icon="list" to="/example" />
-        -->
       </q-toolbar>
     </q-header>
 
@@ -50,67 +16,34 @@
       <router-view />
     </q-page-container>
 
+    <div class="footer-container outer-container q-pt-xl q-pb-xl text-white">
+      <div class="footer-inner inner-container">
+        <div class="row">
+          <div class="col-6">
+            <p class="text-bold text-primary">Adding new entries</p>
+            <p>For the time being, please modify the file below and create a pull request.</p>
+            <p><a href="https://github.com/developers-cash/developers.cash/blob/master/resources.json">https://github.com/developers-cash/developers.cash/blob/master/resources.json</a></p>
+            <p>Alternatively, ping me on Telegram:</p>
+            <p><a href="https://t.me/jimtendo">https://t.me/jimtendo</a></p>
+          </div>
+          <div class="col-3"></div>
+          <div class="col-3 text-center">
+            <p class="text-bold text-primary">Donations (BCH)</p>
+            <a href="bitcoincash:qq8yqreq2s3hk5le38rmh4zv786nj0h7uyrw6knecw">
+              <img src="/statics/donate.png" alt="bitcoincash:qq8yqreq2s3hk5le38rmh4zv786nj0h7uyrw6knecw" title="bitcoincash:qq8yqreq2s3hk5le38rmh4zv786nj0h7uyrw6knecw" />
+            </a>
+            <p><small>(Scan, tap or click)</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </q-layout>
 </template>
 
 <script>
 export default {
   name: 'MyLayout',
-  computed: {
-    resources() {
-      return this.$store.state.app.resources;
-    },
-    resourcesArray() {
-
-    },
-  },
-  data () {
-    return {
-      search: {
-        resources: [],
-        filtered: [],
-        value: ''
-      },
-    }
-  },
-  created() {
-    for (let key in this.resources) {
-      this.search.resources.push(key);
-    }
-  },
-  methods: {
-    filterResources: function(val, update) {
-      update(() => {
-        if (!val) return;
-
-        const needle = val.toLowerCase();
-        this.search.filtered = this.search.resources.filter(v => {
-          if (this.resources[v].title.toLowerCase().includes(needle)) {
-            return true;
-          }
-
-          if (this.resources[v].tags.includes(needle)) {
-            return true;
-          }
-        });
-      })
-    },
-    onSelected: function(val) {
-      if (!val) return;
-
-      this.search.value = '';
-      let resource = this.resources[val];
-      let firstAction = Object.keys(resource.actions)[0];
-      let action = resource.actions[firstAction];
-      if (action.type === 'internal-link') {
-        this.$router.push(action.url);
-      } else if (action.type === 'external-link') {
-        window.location.href = action.url;
-      } else {
-        this.$router.push(`/resource/${val}/${firstAction}`);
-      }
-    }
-  }
 }
 </script>
 

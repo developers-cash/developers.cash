@@ -36,11 +36,23 @@ import '@quasar/extras/animate/rubberBand.css'
 
 import '@quasar/extras/animate/shake.css'
 
+import '@quasar/extras/animate/shakeX.css'
+
+import '@quasar/extras/animate/shakeY.css'
+
 import '@quasar/extras/animate/swing.css'
 
 import '@quasar/extras/animate/tada.css'
 
 import '@quasar/extras/animate/wobble.css'
+
+import '@quasar/extras/animate/backInDown.css'
+
+import '@quasar/extras/animate/backInLeft.css'
+
+import '@quasar/extras/animate/backInRight.css'
+
+import '@quasar/extras/animate/backInUp.css'
 
 import '@quasar/extras/animate/bounceIn.css'
 
@@ -54,6 +66,10 @@ import '@quasar/extras/animate/bounceInUp.css'
 
 import '@quasar/extras/animate/fadeIn.css'
 
+import '@quasar/extras/animate/fadeInBottomLeft.css'
+
+import '@quasar/extras/animate/fadeInBottomRight.css'
+
 import '@quasar/extras/animate/fadeInDown.css'
 
 import '@quasar/extras/animate/fadeInDownBig.css'
@@ -66,6 +82,10 @@ import '@quasar/extras/animate/fadeInRight.css'
 
 import '@quasar/extras/animate/fadeInRightBig.css'
 
+import '@quasar/extras/animate/fadeInTopLeft.css'
+
+import '@quasar/extras/animate/fadeInTopRight.css'
+
 import '@quasar/extras/animate/fadeInUp.css'
 
 import '@quasar/extras/animate/fadeInUpBig.css'
@@ -76,7 +96,9 @@ import '@quasar/extras/animate/flipInY.css'
 
 import '@quasar/extras/animate/jackInTheBox.css'
 
-import '@quasar/extras/animate/lightSpeedIn.css'
+import '@quasar/extras/animate/lightSpeedInLeft.css'
+
+import '@quasar/extras/animate/lightSpeedInRight.css'
 
 import '@quasar/extras/animate/rollIn.css'
 
@@ -108,6 +130,14 @@ import '@quasar/extras/animate/zoomInRight.css'
 
 import '@quasar/extras/animate/zoomInUp.css'
 
+import '@quasar/extras/animate/backOutDown.css'
+
+import '@quasar/extras/animate/backOutLeft.css'
+
+import '@quasar/extras/animate/backOutRight.css'
+
+import '@quasar/extras/animate/backOutUp.css'
+
 import '@quasar/extras/animate/bounceOut.css'
 
 import '@quasar/extras/animate/bounceOutDown.css'
@@ -119,6 +149,10 @@ import '@quasar/extras/animate/bounceOutRight.css'
 import '@quasar/extras/animate/bounceOutUp.css'
 
 import '@quasar/extras/animate/fadeOut.css'
+
+import '@quasar/extras/animate/fadeOutBottomLeft.css'
+
+import '@quasar/extras/animate/fadeOutBottomRight.css'
 
 import '@quasar/extras/animate/fadeOutDown.css'
 
@@ -132,6 +166,10 @@ import '@quasar/extras/animate/fadeOutRight.css'
 
 import '@quasar/extras/animate/fadeOutRightBig.css'
 
+import '@quasar/extras/animate/fadeOutTopLeft.css'
+
+import '@quasar/extras/animate/fadeOutTopRight.css'
+
 import '@quasar/extras/animate/fadeOutUp.css'
 
 import '@quasar/extras/animate/fadeOutUpBig.css'
@@ -140,7 +178,9 @@ import '@quasar/extras/animate/flipOutX.css'
 
 import '@quasar/extras/animate/flipOutY.css'
 
-import '@quasar/extras/animate/lightSpeedOut.css'
+import '@quasar/extras/animate/lightSpeedOutLeft.css'
+
+import '@quasar/extras/animate/lightSpeedOutRight.css'
 
 import '@quasar/extras/animate/rollOut.css'
 
@@ -186,7 +226,7 @@ import createApp from './app.js'
 import Vue from 'vue'
 
 import App from 'app/src/App.vue'
-const appOptions = App.options || App
+const appOptions = App.options /* Vue.extend() */ || App
 
 
 
@@ -203,14 +243,14 @@ export default context => {
     const { app, store, router } = await createApp(context)
 
     
-    let routeUnchanged = true
+    let hasRedirected = false
     const redirect = url => {
-      routeUnchanged = false
+      hasRedirected = true
       reject({ url })
     }
 
     const bootFiles = [qboot_Bootaxios]
-    for (let i = 0; routeUnchanged === true && i < bootFiles.length; i++) {
+    for (let i = 0; hasRedirected === false && i < bootFiles.length; i++) {
       if (typeof bootFiles[i] !== 'function') {
         continue
       }
@@ -232,7 +272,7 @@ export default context => {
       }
     }
 
-    if (routeUnchanged === false) {
+    if (hasRedirected === true) {
       return
     }
     
@@ -246,7 +286,7 @@ export default context => {
     }
 
     // set router's location
-    router.push(url)
+    router.push(url).catch(() => {})
 
     // wait until router has resolved possible async hooks
     router.onReady(() => {
@@ -254,19 +294,19 @@ export default context => {
         .map(m => m.options /* Vue.extend() */ || m)
 
       // no matched routes
-      if (!matchedComponents.length) {
+      if (matchedComponents.length === 0) {
         return reject({ code: 404 })
       }
 
       
 
-      let routeUnchanged = true
+      let hasRedirected = false
       const redirect = url => {
-        routeUnchanged = false
+        hasRedirected = true
         reject({ url })
       }
 
-      appOptions.preFetch && matchedComponents.unshift(appOptions)
+      appOptions.preFetch !== void 0 && matchedComponents.unshift(appOptions)
 
       // Call preFetch hooks on components matched by the route.
       // A preFetch hook dispatches a store action and returns a Promise,
@@ -275,7 +315,7 @@ export default context => {
       matchedComponents
       .filter(c => c && c.preFetch)
       .reduce(
-        (promise, c) => promise.then(() => routeUnchanged && c.preFetch({
+        (promise, c) => promise.then(() => hasRedirected === false && c.preFetch({
           store,
           ssrContext: context,
           currentRoute: router.currentRoute,
@@ -284,7 +324,7 @@ export default context => {
         Promise.resolve()
       )
       .then(() => {
-        if (!routeUnchanged) { return }
+        if (hasRedirected === true) { return }
 
         context.state = store.state
 

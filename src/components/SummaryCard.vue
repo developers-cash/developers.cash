@@ -23,42 +23,13 @@
       </q-card-section>
 
       <q-card-actions>
-        <span v-for="(action, key) in resource.actions" :key="key">
-          <template v-if="action.type === 'external-link'">
-            <q-btn flat color="dark" :label="action.title" type="a" :href="action.url" target="_blank" icon="link" />
-          </template>
-          <template v-else-if="action.type === 'internal-link'">
-            <q-btn flat color="dark" :label="action.title" :to="action.url" />
-          </template>
-          <template v-else>
-            <q-btn flat color="dark" :label="action.title" :to="`/resource/${resource.id}/${key}`" />
-          </template>
+        <span v-for="(link, i) in resource.links" :key="i">
+          <q-btn flat color="dark" :label="link.title" type="a" :href="link.url" target="_blank" icon="link" />
         </span>
-
-        <!--
-        <q-space />
-
-        <q-btn
-          color="grey"
-          round
-          flat
-          dense
-          :icon="expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
-          @click="expanded = !expanded"
-        />
-        -->
+        <span v-for="(action, key) in resource.actions" :key="key">
+          <q-btn flat color="dark" :label="action.title" type="a" :href="action.url" target="_blank" icon="link" />
+        </span>
       </q-card-actions>
-
-      <!--
-      <q-slide-transition>
-        <div v-show="expanded">
-          <q-separator />
-          <q-card-section class="text-subitle2">
-            {{ resource.description }}
-          </q-card-section>
-        </div>
-      </q-slide-transition>
-      -->
     </q-card>
 </template>
 

@@ -84,25 +84,95 @@
   </q-page>
 </template>
 
+<style>
+@media screen and (max-width: 1023px) {
+  h1.text-primary {
+    font-size: 4rem
+  }
+}
+
+@media screen and (max-width: 599px) {
+  h1.text-primary {
+    font-size: 2.5rem
+  }
+}
+</style>
+
 <script>
-import Resources from '../../resources1'
+import Resources from '../../resources'
 import SummaryCard from '../components/SummaryCard'
 
 export default {
   components: { SummaryCard },
 
+  data () {
+    return {
+      categories: {},
+      filter: {
+        value: '',
+        options: [],
+        suggestions: []
+      },
+      columns: [
+        {
+          name: 'title',
+          required: true,
+          label: 'Title',
+          field: row => row.title,
+          sortable: true,
+          align: 'left',
+        },
+        {
+          name: 'subheading',
+          required: true,
+          label: 'Subheading',
+          field: row => row.subheading,
+          sortable: true,
+          align: 'left',
+        },
+        {
+          name: 'description',
+          required: true,
+          label: 'description',
+          field: row => row.description,
+          sortable: true,
+          align: 'left',
+        },
+        {
+          name: 'tags',
+          required: true,
+          label: 'tags',
+          field: row => row.tags,
+          sortable: true,
+          align: 'left',
+        },
+      ],
+      pagination: {
+        rowsPerPage: 6 // current rows per page being displayed
+      }
+    }
+  },
+
   created() {
+      // Create categories
       let categories = { };
-      for (let i in this.resources) {
-        categories[this.resources[i].category] = false;
+      for (let resource of Resources) {
+        categories[resource.category] = false;
       }
       this.categories = categories;
+
+      // Compile suggestions for filter
+      for (let resource of Resources) {
+        this.filter.suggestions.push(resource.title)
+        this.filter.suggestions.push(resource.subheading)
+        resource.tags.forEach(tag => this.filter.suggestions.push(tag))
+      }
+
+      // Make values in suggestions array unique
+      this.filter.suggestions = [...new Set(this.filter.suggestions)]
   },
 
   computed: {
-    resources() {
-      return Resources;
-    },
     noCategoryFilter() {
       for (let key in this.categories) {
         if (this.categories[key]) return false;
@@ -114,10 +184,9 @@ export default {
   methods: {
     getCategory(category) {
       let asArray = [];
-      for (let key in this.resources) {
-        let resource = this.resources[key];
+      for (let resource of Resources) {
         if (resource.category === category) {
-          asArray.push(Object.assign(resource, { id: key }));
+          asArray.push(resource);
         }
       }
       return asArray;
@@ -125,10 +194,12 @@ export default {
 
     useIcon(category) {
       switch (category) {
-        case 'Nodes': return 'cloud'
+        case 'Node Software': return 'cloud_circle'
+        case 'Community': return 'people'
+        case 'Libraries': return 'code'
+        case 'Network': return 'device_hub'
         case 'Services': return 'cloud'
         case 'Self-Hosted': return 'cloud_download'
-        case 'Libraries': return 'code'
         case 'Tools': return 'build'
         default: return 'school';
       }
@@ -139,44 +210,12 @@ export default {
         if (!val) return;
 
         const needle = val.toLowerCase();
-        /*this.filter.options = this.search.resources.filter(v => {
-          if (this.resources[v].title.toLowerCase().includes(needle)) {
-            return true;
-          }
-
-          if (this.resources[v].tags.includes(needle)) {
-            return true;
-          }
-        });*/
+        this.filter.options = this.filter.suggestions.filter(v => v.toLowerCase().startsWith(needle))
       })
     },
 
     setFilter: function(val) {
-      console.log('called')
       this.filter.value = val
-    }
-  },
-
-  data () {
-    return {
-      categories: {},
-      filter: {
-        value: 'BCHD',
-        options: []
-      },
-      columns: [
-        {
-          name: 'app',
-          required: true,
-          label: 'App/Service',
-          field: row => row.title,
-          sortable: true,
-          align: 'left',
-        },
-      ],
-      pagination: {
-        rowsPerPage: 6 // current rows per page being displayed
-      }
     }
   }
 }
