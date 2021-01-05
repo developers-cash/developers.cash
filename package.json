@@ -13,7 +13,7 @@
   "dependencies": {
     "@developers.cash/libcash-js": "^0.9.3",
     "@quasar/extras": "^1.9.10",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bip70cash": "0.0.12",
     "compact-message-format": "0.0.4",
     "github-markdown-css": "^3.0.1",
