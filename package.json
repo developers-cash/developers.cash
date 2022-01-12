@@ -17,7 +17,7 @@
     "bip70cash": "0.0.12",
     "compact-message-format": "0.0.4",
     "github-markdown-css": "^3.0.1",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^12.3.2",
     "qrcode": "^1.4.4",
     "quasar": "^1.14.5",
     "vue-prismjs": "^1.2.0",
